@@ -1,0 +1,17 @@
+# Create Python 3.8 env using conda
+
+conda create --name py38_env --override-channels -c https://repo.anaconda.com/pkgs/snowflake python=3.8 numpy pandas
+
+# For M1 chips
+# venv using x86 Python
+
+CONDA_SUBDIR=osx-64 conda create -n snowpark python=3.8 numpy pandas --override-channels -c https://repo.anaconda.com/pkgs/snowflake
+conda activate snowpark
+conda config --env --set subdir osx-64
+
+# Install packages
+
+pip install snowflake-snowpark-python
+pip install "snowflake-snowpark-python[pandas]"
+
+source: https://docs.snowflake.com/en/developer-guide/snowpark/python/setup.html
