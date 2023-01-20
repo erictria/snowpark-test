@@ -36,7 +36,7 @@ SELECT
     , COUNT(DISTINCT set_profile) AS profiles
     , COUNT(DISTINCT set_user) AS users
 FROM event
-WHERE day >= DATE('2022-01-01')
+WHERE DATE_TRUNC('year', day) = DATE('2022-01-01')
 GROUP BY 1, 2
 ORDER BY 1, 3 DESC
 """
